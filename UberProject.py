@@ -10,8 +10,6 @@ import streamlit as st
 
 import pandas as pd
 import numpy as np
-import random 
-from random import sample
 
 from sklearn.cluster import KMeans
 from sklearn.cluster import DBSCAN
