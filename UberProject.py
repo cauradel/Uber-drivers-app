@@ -23,7 +23,7 @@ st.write("New York in July is a busy month. This app aims at giving Uber drivers
 
 ####### Load Dataset #####################
 
-uber = pd.read_csv('https://github.com/cauradel/Uber-drivers-app/blob/main/uber_raw_smaller.csv',header= 0,index_col= False, sep=',', on_bad_lines='skip')
+uber = pd.read_csv('https://github.com/cauradel/Uber-drivers-app/raw/main/uber_raw_smaller.csv',header= 0,index_col= False, sep=',', on_bad_lines='skip')
 uber_sample = uber.sample(n=None, frac=0.01, replace=False, weights=None, random_state=None, axis=None)
 
 
