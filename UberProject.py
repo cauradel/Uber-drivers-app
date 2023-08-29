@@ -31,7 +31,7 @@ uber_sample = uber.sample(n=None, frac=0.01, replace=False, weights=None, random
 
 ######## Clustering #############
 
-x = uber_sample[['Lat','Lon']]
+x = uber_sample[['Lat','Lon']].values
 kmeans = KMeans(n_clusters=7)
 labels = kmeans.fit(x)
 y_kmeans = kmeans.predict(x)
