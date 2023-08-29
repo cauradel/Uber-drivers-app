@@ -77,8 +77,9 @@ uber_sample3 = uber_sample.groupby('Hour', as_index=False)['Date/Time'].count()
 uber_sample3.sort_values('Hour', axis=0, ascending=False)
 
 # Creating a bar chart to visualize rush hours
-st.title('Rush hours during the month of July')
-st.bar_chart(uber_sample3, x='Hour', y='Number of Rides')
+st.title('Rush hours during the month of July', use_container_width=True)  # Adjust the width of the title container
+st.bar_chart(uber_sample3, x='Hour', y='Date/Time')
+
 
 
 
