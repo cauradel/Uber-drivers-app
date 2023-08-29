@@ -72,11 +72,13 @@ Centroids = uber_sample['centroids']
 
 ##### Heures de pointe #####
 
-uber_sample3 = uber_sample.groupby('Hour', as_index=False)['centroids'].sum()
-uber_sample3.sort_values('Hour', axis = 0, ascending = False)
+# Grouping data and calculating count of rides for each hour
+uber_sample3 = uber_sample.groupby('Hour', as_index=False)['Date/Time'].count()
+uber_sample3.sort_values('Hour', axis=0, ascending=False)
 
+# Creating a bar chart to visualize rush hours
 st.title('Rush hours during the month of July')
-st.bar_chart(uber_sample3)
+st.bar_chart(uber_sample3, x='Hour', y='Date/Time')
 
 
 
