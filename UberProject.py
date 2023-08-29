@@ -53,41 +53,6 @@ uber_sample2.rename(columns = {'Lat':'lat', 'Lon':'lon'}, inplace = True)
 st.title('Busiest New York districts in July')
 st.map(uber_sample2)
 
-######### Better Map #####
-
-
-import pydeck as pdk
-
-st.title('Busiest New York districts and streets in July')
-st.pydeck_chart(pdk.Deck(
-    map_style=None,
-    initial_view_state=pdk.ViewState(
-        latitude=40.7128,
-        longitude=-74.0060,
-        zoom=11,
-        pitch=50,
-    ),
-    layers=[
-        pdk.Layer(
-           'HexagonLayer',
-           data=uber_sample2,
-           get_position='[lon, lat]',
-           radius=200,
-           elevation_scale=4,
-           elevation_range=[0, 1000],
-           pickable=True,
-           extruded=True,
-        ),
-        pdk.Layer(
-            'ScatterplotLayer',
-            data=uber_sample2,
-            get_position='[lon, lat]',
-            get_color='[200, 30, 0, 160]',
-            pickable = True,
-            get_radius=200,
-        ),
-    ],
-))
 
 ### Clusters according to time of day ########
 
