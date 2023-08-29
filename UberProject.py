@@ -72,31 +72,16 @@ Centroids = uber_sample['centroids']
 
 ##### Heures de pointe #####
 
-import streamlit as st
-import matplotlib.pyplot as plt
-import pandas as pd
-
 # Grouping data and calculating count of rides for each hour
 uber_sample3 = uber_sample.groupby('Hour', as_index=False)['Date/Time'].count()
 uber_sample3.sort_values('Hour', axis=0, ascending=False)
 
-# Creating a bar chart to visualize rush hours using Matplotlib
-plt.figure(figsize=(10, 6))
-plt.bar(uber_sample3['Hour'], uber_sample3['Date/Time'])
+# Display explanation
+st.write("The y-axis label 'Date/Time' represents 'Number of Rides'.")
 
-# Customize the plot
-plt.title('Rush hours during the month of July')
-plt.xlabel('Hour')
-plt.ylabel('Number of Rides')
-plt.grid(True, linestyle='--', alpha=0.7)
-
-# Create custom hover labels
-hover_labels = ['Number of Rides: {}'.format(val) for val in uber_sample3['Date/Time']]
-plt.xticks(uber_sample3['Hour'], labels=hover_labels, rotation=45, ha="right")
-
-# Display the Matplotlib plot using Streamlit
-st.pyplot()
-
+# Creating a bar chart to visualize rush hours
+st.title('Rush hours during the month of July')
+st.bar_chart(uber_sample3, x='Hour', y='Date/Time', use_container_width=True)
 
 
 
