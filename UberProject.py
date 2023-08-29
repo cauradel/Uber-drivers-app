@@ -78,10 +78,8 @@ uber_sample3.sort_values('Hour', axis=0, ascending=False)
 
 # Creating a bar chart to visualize rush hours
 st.title('Rush hours during the month of July')
-st.bar_chart(uber_sample3, x='Hour', y='Date/Time', use_container_width=True)
+st.bar_chart(uber_sample3, x='Hour', y='Date/Time', use_container_width=True, y_axis_label="Number of Rides")
 
-# Set y-axis label to "Number of Rides"
-st.pyplot().set_ylabel("Number of Rides")
 
 
 
