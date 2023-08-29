@@ -143,20 +143,6 @@ if day == 'Sunday':
     st.bar_chart(data = sunday, x = 'Hour', y = 'centroids' )
 
 
-###### Base Plot ######################
-
-st.title('Most popular taxi stops')
-
-import plotly.figure_factory as ff
-base = uber_sample['Base']
-location = uber_sample['Lat']
-date = uber_sample['Date/Time']
-
-arr = uber_sample['Base']
-fig, ax = plt.subplots()
-ax.hist(arr, bins=20)
-
-st.plotly_chart(fig)
 
 
 
