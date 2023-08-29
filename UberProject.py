@@ -76,12 +76,9 @@ Centroids = uber_sample['centroids']
 uber_sample3 = uber_sample.groupby('Hour', as_index=False)['Date/Time'].count()
 uber_sample3.sort_values('Hour', axis=0, ascending=False)
 
-# Create a new column with y-axis label
-uber_sample3['y_label'] = 'Number of Rides'
-
 # Creating a bar chart to visualize rush hours
 st.markdown('<h1 style="width: 80%;">Rush hours during the month of July</h1>', unsafe_allow_html=True)
-st.bar_chart(uber_sample3, x='Hour', y='Date/Time', key='y_label')
+st.bar_chart(uber_sample3, x='Hour', y='Date/Time')
 
 
 
