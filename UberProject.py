@@ -72,13 +72,23 @@ Centroids = uber_sample['centroids']
 
 ##### Heures de pointe #####
 
+import streamlit as st
+import plotly.express as px
+
 # Grouping data and calculating count of rides for each hour
 uber_sample3 = uber_sample.groupby('Hour', as_index=False)['Date/Time'].count()
 uber_sample3.sort_values('Hour', axis=0, ascending=False)
 
-# Creating a bar chart to visualize rush hours
-st.title('Rush hours during the month of July')
-st.bar_chart(uber_sample3, x='Hour', y='Date/Time', use_container_width=True, y_axis_label="Number of Rides")
+# Creating a bar chart to visualize rush hours using Plotly
+fig = px.bar(uber_sample3, x='Hour', y='Date/Time')
+fig.update_layout(
+    title='Rush hours during the month of July',
+    yaxis_title="Number of Rides"
+)
+
+# Display the Plotly figure in Streamlit
+st.plotly_chart(fig, use_container_width=True)
+
 
 
 
