@@ -83,11 +83,19 @@ uber_sample3.sort_values('Hour', axis=0, ascending=False)
 fig = px.bar(uber_sample3, x='Hour', y='Date/Time')
 fig.update_layout(
     title='Rush hours during the month of July',
-    yaxis_title="Number of Rides"
+    yaxis_title="Number of Rides",
+    plot_bgcolor=st.get_option("theme.backgroundColor"),  # Match Streamlit's background color
+    hoverlabel=dict(
+        bgcolor="white",  # Customize hover label background color
+        font_size=14,  # Customize font size
+        font_color="black",  # Customize font color
+        namelength=-1  # Display the full label
+    )
 )
 
 # Display the Plotly figure in Streamlit
 st.plotly_chart(fig, use_container_width=True)
+
 
 
 
